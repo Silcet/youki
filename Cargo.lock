@@ -241,6 +241,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "commands"
+version = "0.0.3"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "clap_complete",
+ "libcgroups",
+ "libcontainer",
+ "liboci-cli",
+ "log",
+ "nix",
+ "oci-spec",
+ "once_cell",
+ "pentacle",
+ "procfs",
+ "serde",
+ "serde_json",
+ "serial_test",
+ "tabwriter",
+ "vergen",
+]
+
+[[package]]
 name = "const_fn"
 version = "0.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2966,31 +2990,7 @@ dependencies = [
  "chrono",
  "clap",
  "clap_complete",
- "libcgroups",
- "libcontainer",
- "liboci-cli",
- "log",
- "nix",
- "oci-spec",
- "once_cell",
- "pentacle",
- "procfs",
- "serde",
- "serde_json",
- "serial_test",
- "tabwriter",
- "vergen",
- "youki-commands",
-]
-
-[[package]]
-name = "youki-commands"
-version = "0.0.3"
-dependencies = [
- "anyhow",
- "chrono",
- "clap",
- "clap_complete",
+ "commands",
  "libcgroups",
  "libcontainer",
  "liboci-cli",

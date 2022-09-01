@@ -1,5 +1,5 @@
 [package]
-name = "youki-commands"
+name = "commands"
 version = "0.0.3"
 description = "A container runtime written in Rust"
 license-file = "../../LICENSE"
