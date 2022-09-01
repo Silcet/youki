@@ -2980,4 +2980,29 @@ dependencies = [
  "serial_test",
  "tabwriter",
  "vergen",
+ "youki-commands",
+]
+
+[[package]]
+name = "youki-commands"
+version = "0.0.3"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "clap_complete",
+ "libcgroups",
+ "libcontainer",
+ "liboci-cli",
+ "log",
+ "nix",
+ "oci-spec",
+ "once_cell",
+ "pentacle",
+ "procfs",
+ "serde",
+ "serde_json",
+ "serial_test",
+ "tabwriter",
+ "vergen",
 ]

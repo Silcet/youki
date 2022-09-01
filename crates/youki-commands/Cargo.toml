@@ -1,5 +1,5 @@
 [package]
-name = "youki"
+name = "youki-commands"
 version = "0.0.3"
 description = "A container runtime written in Rust"
 license-file = "../../LICENSE"
@@ -9,7 +9,7 @@ readme = "../../README.md"
 authors = ["youki team"]
 edition = "2021"
 build = "build.rs"
-keywords = ["youki", "container"]
+keywords = ["youki", "container", "commands"]
 
 [dependencies.clap]
 version = "3.2.17"
@@ -22,7 +22,6 @@ chrono = { version = "0.4", features = ["serde"] }
 libcgroups = { version = "0.0.3", path = "../libcgroups" }
 libcontainer = { version = "0.0.3", path = "../libcontainer" }
 liboci-cli = { version = "0.0.3", path = "../liboci-cli" }
-commands = { version = "0.0.3", path = "../youki-commands", package = "youki-commands" }
 log = { version = "0.4", features = ["std"] }
 nix = "0.25.0"
 oci-spec = { version = "0.5.7", features = ["runtime"] }

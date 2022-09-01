@@ -1,4 +1,4 @@
-use crate::commands::create_cgroup_manager;
+use crate::create_cgroup_manager;
 use anyhow::{bail, Result};
 use liboci_cli::Ps;
 use std::{path::PathBuf, process::Command};

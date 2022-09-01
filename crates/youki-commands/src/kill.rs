@@ -3,7 +3,7 @@ use std::{convert::TryInto, path::PathBuf};
 
 use anyhow::Result;
 
-use crate::commands::load_container;
+use crate::load_container;
 use libcontainer::signal::Signal;
 use liboci_cli::Kill;
 

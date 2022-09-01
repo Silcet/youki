@@ -2,7 +2,7 @@ use std::path::PathBuf;
 
 use anyhow::Result;
 
-use crate::commands::load_container;
+use crate::load_container;
 use liboci_cli::State;
 
 pub fn state(args: State, root_path: PathBuf) -> Result<()> {

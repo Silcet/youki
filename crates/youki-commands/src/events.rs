@@ -4,7 +4,7 @@ use anyhow::{Context, Result};
 
 use liboci_cli::Events;
 
-use crate::commands::load_container;
+use crate::load_container;
 
 pub fn events(args: Events, root_path: PathBuf) -> Result<()> {
     let mut container = load_container(root_path, &args.container_id)?;

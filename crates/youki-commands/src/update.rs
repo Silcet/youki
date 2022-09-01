@@ -2,7 +2,7 @@ use std::fs;
 use std::io;
 use std::path::PathBuf;
 
-use crate::commands::create_cgroup_manager;
+use crate::create_cgroup_manager;
 use anyhow::Result;
 use libcgroups::{self, common::ControllerOpt};
 use liboci_cli::Update;

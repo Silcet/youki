@@ -3,7 +3,7 @@ use std::path::PathBuf;
 
 use anyhow::{Context, Result};
 
-use crate::commands::load_container;
+use crate::load_container;
 
 use liboci_cli::Resume;
 

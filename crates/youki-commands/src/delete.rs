@@ -1,4 +1,4 @@
-use crate::commands::{container_exists, load_container};
+use crate::{container_exists, load_container};
 use anyhow::{Context, Result};
 use std::path::PathBuf;
 

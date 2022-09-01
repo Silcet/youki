@@ -1,5 +1,5 @@
 //! Contains functionality of pause container command
-use crate::commands::load_container;
+use crate::load_container;
 use std::path::PathBuf;
 
 use anyhow::{Context, Result};
