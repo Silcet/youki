@@ -15,7 +15,10 @@ keywords = ["youki", "container"]
 systemd = ["libcgroups/systemd", "libcontainer/systemd", "v2"]
 v2 = ["libcgroups/v2", "libcontainer/v2"]
 v1 = ["libcgroups/v1", "libcontainer/v1"]
-cgroupsv2_devices = ["libcgroups/cgroupsv2_devices", "libcontainer/cgroupsv2_devices"]
+cgroupsv2_devices = [
+    "libcgroups/cgroupsv2_devices",
+    "libcontainer/cgroupsv2_devices",
+]
 wasm-wasmer = ["wasmer", "wasmer-wasix"]
 wasm-wasmedge = ["wasmedge-sdk/standalone"]
 wasm-wasmtime = ["wasmtime", "wasmtime-wasi"]
@@ -23,11 +26,22 @@ wasm-wasmtime = ["wasmtime", "wasmtime-wasi"]
 [dependencies.clap]
 version = "4.1.6"
 default-features = false
-features = ["std", "suggestions", "derive", "cargo", "help", "usage", "error-context"]
+features = [
+    "std",
+    "suggestions",
+    "derive",
+    "cargo",
+    "help",
+    "usage",
+    "error-context",
+]
 
 [dependencies]
 anyhow = "1.0.75"
-chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+chrono = { version = "0.4", default-features = false, features = [
+    "clock",
+    "serde",
+] }
 libcgroups = { version = "0.2.0", path = "../libcgroups", default-features = false }
 libcontainer = { version = "0.2.0", path = "../libcontainer", default-features = false }
 liboci-cli = { version = "0.2.0", path = "../liboci-cli" }
@@ -43,9 +57,9 @@ caps = "0.5.5"
 wasmer = { version = "4.0.0", optional = true }
 wasmer-wasix = { version = "0.9.0", optional = true }
 wasmedge-sdk = { version = "0.12.2", optional = true }
-wasmtime = {version = "10.0.2", optional = true }
-wasmtime-wasi = {version = "10.0.2", optional = true }
-tracing = { version = "0.1.37", features = ["attributes"]}
+wasmtime = { version = "10.0.2", optional = true }
+wasmtime-wasi = { version = "10.0.2", optional = true }
+tracing = { version = "0.1.37", features = ["attributes"] }
 tracing-subscriber = { version = "0.3.16", features = ["json", "env-filter"] }
 tracing-journald = "0.3.0"
 
@@ -56,4 +70,12 @@ scopeguard = "1.2.0"
 
 [build-dependencies]
 anyhow = "1.0.75"
-vergen = {version ="8.2.5", features =["git","gitcl"]}
+vergen = { version = "8.2.5", features = ["git", "gitcl"] }
+
+[lib]
+name = "youki_lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "youki"
+path = "src/main.rs"
