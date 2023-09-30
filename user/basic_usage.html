@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -31,7 +31,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -61,42 +61,69 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../youki.html">Youki</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../user/introduction.html"><strong aria-hidden="true">1.</strong> User Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../user/basic_setup.html"><strong aria-hidden="true">1.1.</strong> Basic Setup</a></li><li class="chapter-item expanded "><a href="../user/basic_usage.html" class="active"><strong aria-hidden="true">1.2.</strong> Basic Usage</a></li><li class="chapter-item expanded "><a href="../user/crates.html"><strong aria-hidden="true">1.3.</strong> Crates provided</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../user/libcgroups.html"><strong aria-hidden="true">1.3.1.</strong> libcgroups</a></li><li class="chapter-item expanded "><a href="../user/libcontainer.html"><strong aria-hidden="true">1.3.2.</strong> libcontainer</a></li><li class="chapter-item expanded "><a href="../user/liboci_cli.html"><strong aria-hidden="true">1.3.3.</strong> liboci-cli</a></li><li class="chapter-item expanded "><a href="../user/libseccomp.html"><strong aria-hidden="true">1.3.4.</strong> libseccomp</a></li></ol></li><li class="chapter-item expanded "><a href="../user/webassembly.html"><strong aria-hidden="true">1.4.</strong> Webassembly</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../developer/introduction.html"><strong aria-hidden="true">2.</strong> Developer Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../developer/unwritten_rules.html"><strong aria-hidden="true">2.2.</strong> Unwritten Rules</a></li><li class="chapter-item expanded "><a href="../developer/good_places_to_start.html"><strong aria-hidden="true">2.3.</strong> Good places to start</a></li><li class="chapter-item expanded "><a href="../developer/documentation_mdbook.html"><strong aria-hidden="true">2.4.</strong> This Documentation</a></li><li class="chapter-item expanded "><a href="../developer/repo_structure.html"><strong aria-hidden="true">2.5.</strong> Repository Structure</a></li><li class="chapter-item expanded "><a href="../developer/crate_specific_information.html"><strong aria-hidden="true">2.6.</strong> Crate Specific Information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer/libcgroups.html"><strong aria-hidden="true">2.6.1.</strong> libcgroups</a></li><li class="chapter-item expanded "><a href="../developer/libcontainer.html"><strong aria-hidden="true">2.6.2.</strong> libcontainer</a></li><li class="chapter-item expanded "><a href="../developer/liboci_cli.html"><strong aria-hidden="true">2.6.3.</strong> liboci-cli</a></li><li class="chapter-item expanded "><a href="../developer/libseccomp.html"><strong aria-hidden="true">2.6.4.</strong> libseccomp</a></li><li class="chapter-item expanded "><a href="../developer/youki.html"><strong aria-hidden="true">2.6.5.</strong> youki</a></li><li class="chapter-item expanded "><a href="../developer/test_framework.html"><strong aria-hidden="true">2.6.6.</strong> test_framework</a></li><li class="chapter-item expanded "><a href="../developer/integration_test.html"><strong aria-hidden="true">2.6.7.</strong> integration_test</a></li><li class="chapter-item expanded "><a href="../developer/runtimetest.html"><strong aria-hidden="true">2.6.8.</strong> runtimetest</a></li></ol></li><li class="chapter-item expanded "><a href="../developer/containerd_integration_test_using_youki.html"><strong aria-hidden="true">2.7.</strong> containerd integration test</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../youki.html">Youki</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../user/introduction.html"><strong aria-hidden="true">1.</strong> User Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../user/basic_setup.html"><strong aria-hidden="true">1.1.</strong> Basic Setup</a></li><li class="chapter-item expanded "><a href="../user/basic_usage.html" class="active"><strong aria-hidden="true">1.2.</strong> Basic Usage</a></li><li class="chapter-item expanded "><a href="../user/crates.html"><strong aria-hidden="true">1.3.</strong> Crates provided</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../user/libcgroups.html"><strong aria-hidden="true">1.3.1.</strong> libcgroups</a></li><li class="chapter-item expanded "><a href="../user/libcontainer.html"><strong aria-hidden="true">1.3.2.</strong> libcontainer</a></li><li class="chapter-item expanded "><a href="../user/liboci_cli.html"><strong aria-hidden="true">1.3.3.</strong> liboci-cli</a></li><li class="chapter-item expanded "><a href="../user/libseccomp.html"><strong aria-hidden="true">1.3.4.</strong> libseccomp</a></li></ol></li><li class="chapter-item expanded "><a href="../user/webassembly.html"><strong aria-hidden="true">1.4.</strong> Webassembly</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../developer/introduction.html"><strong aria-hidden="true">2.</strong> Developer Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer/basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li class="chapter-item expanded "><a href="../developer/unwritten_rules.html"><strong aria-hidden="true">2.2.</strong> Unwritten Rules</a></li><li class="chapter-item expanded "><a href="../developer/good_places_to_start.html"><strong aria-hidden="true">2.3.</strong> Good places to start</a></li><li class="chapter-item expanded "><a href="../developer/documentation_mdbook.html"><strong aria-hidden="true">2.4.</strong> This Documentation</a></li><li class="chapter-item expanded "><a href="../developer/repo_structure.html"><strong aria-hidden="true">2.5.</strong> Repository Structure</a></li><li class="chapter-item expanded "><a href="../developer/debugging.html"><strong aria-hidden="true">2.6.</strong> Debugging</a></li><li class="chapter-item expanded "><a href="../developer/crate_specific_information.html"><strong aria-hidden="true">2.7.</strong> Crate Specific Information</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer/libcgroups.html"><strong aria-hidden="true">2.7.1.</strong> libcgroups</a></li><li class="chapter-item expanded "><a href="../developer/libcontainer.html"><strong aria-hidden="true">2.7.2.</strong> libcontainer</a></li><li class="chapter-item expanded "><a href="../developer/liboci_cli.html"><strong aria-hidden="true">2.7.3.</strong> liboci-cli</a></li><li class="chapter-item expanded "><a href="../developer/libseccomp.html"><strong aria-hidden="true">2.7.4.</strong> libseccomp</a></li><li class="chapter-item expanded "><a href="../developer/youki.html"><strong aria-hidden="true">2.7.5.</strong> youki</a></li></ol></li><li class="chapter-item expanded "><a href="../developer/e2e/e2e_tests.html"><strong aria-hidden="true">2.8.</strong> e2e tests</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer/e2e/rust_oci_test.html"><strong aria-hidden="true">2.8.1.</strong> rust oci tests</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer/e2e/integration_test.html"><strong aria-hidden="true">2.8.1.1.</strong> integration_test</a></li><li class="chapter-item expanded "><a href="../developer/e2e/test_framework.html"><strong aria-hidden="true">2.8.1.2.</strong> test_framework</a></li><li class="chapter-item expanded "><a href="../developer/e2e/runtimetest.html"><strong aria-hidden="true">2.8.1.3.</strong> runtimetest</a></li></ol></li><li class="chapter-item expanded "><a href="../developer/e2e/containerd_integration_test_using_youki.html"><strong aria-hidden="true">2.8.2.</strong> containerd integration test</a></li><li class="chapter-item expanded "><a href="../developer/e2e/runtime_tools.html"><strong aria-hidden="true">2.8.3.</strong> runtime tools</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -162,7 +189,7 @@
 </code></pre>
 <p>This will start the daemon and hang up the console. You can either start this as a background process to continue using the same terminal, or use another terminal, which will make it easier to stop the docker daemon later.</p>
 <p>In case you don't stop the original daemon, you can get an error message after previous command</p>
-<pre><code>failed to start daemon: pid file found, ensure docker is not running or delete /var/run/docker.pid
+<pre><code class="language-console">failed to start daemon: pid file found, ensure docker is not running or delete /var/run/docker.pid
 </code></pre>
 <p>Now that the docker daemon is running, you can use docker normally as you will, but you will be able to specify Youki as its low-level runtime to actually create, start and stop the containers.</p>
 <p>You can try running a container such as</p>
@@ -178,17 +205,25 @@
 let docker know youki
 (<a href="https://docs.docker.com/engine/reference/commandline/dockerd/#on-linux">source</a>).
 You may need to create this file, if it does not yet exist. A sample content of it:</p>
-<pre><code>{
+<pre><code class="language-json">{
   &quot;default-runtime&quot;: &quot;runc&quot;,
   &quot;runtimes&quot;: {
     &quot;youki&quot;: {
-      &quot;path&quot;: &quot;/path/to/youki/youki&quot;
+      &quot;path&quot;: &quot;/path/to/youki/youki&quot;,
+      &quot;runtimeArgs&quot;: [
+          &quot;--debug&quot;,
+          &quot;--systemd-log&quot;
+      ]
     }
   }
 }
 </code></pre>
 <p>After this (need to restart docker at the first time), you can use youki
-with docker: <code>docker run --runtime youki ...</code>.</p>
+with docker: <code>docker run --runtime youki ...</code>. You can verify the runtime includes <code>youki</code>:</p>
+<pre><code class="language-console">$ docker info|grep -i runtime
+ Runtimes: youki runc
+ Default Runtime: runc
+</code></pre>
 <h4 id="using-youki-standalone"><a class="header" href="#using-youki-standalone">Using Youki Standalone</a></h4>
 <p>Youki can also be used directly, without a higher-level runtime such as Docker to create, start, stop and delete the container, but the process can be tedious. Here we will show how you can do that, to run a simple container with desired program running in it.</p>
 <p>Note that we will still be using Docker to generate the rootfs required for running the container.</p>
@@ -232,7 +267,7 @@ sudo ./youki list
 # delete the container
 sudo ./youki delete tutorial_container
 </code></pre>
-<p>The example above shows how to run Youki in a 'rootful' way. To run it without root permissions, that is, in rootless mode, few chagnes are required.</p>
+<p>The example above shows how to run Youki in a 'rootful' way. To run it without root permissions, that is, in rootless mode, few changes are required.</p>
 <p>First, after exporting the rootfs from docker, while generating the config, you will need to pass the rootless flag. This will generate the config withe the options needed for rootless operation of the container.</p>
 <pre><code class="language-console">../youki spec --rootless
 </code></pre>
@@ -244,6 +279,13 @@ sudo ./youki delete tutorial_container
 ./youki list
 ./youki delete rootless_container
 </code></pre>
+<h4 id="log-level"><a class="header" href="#log-level">Log level</a></h4>
+<p><code>youki</code> defaults the log level to <code>error</code> in the release build. In the debug
+build, the log level defaults to <code>debug</code>. The <code>--log-level</code> flag can be used to
+set the log-level. For least amount of log, we recommend using the <code>error</code> log
+level. For the most spammy logging, we have a <code>trace</code> level.</p>
+<p>For compatibility with <code>runc</code> and <code>crun</code>, we have a <code>--debug</code> flag to set the
+log level to <code>debug</code>. This flag is ignored if <code>--log-level</code> is also set.</p>
 
                     </main>
 
@@ -253,7 +295,7 @@ sudo ./youki delete tutorial_container
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../user/crates.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../user/crates.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -267,7 +309,7 @@ sudo ./youki delete tutorial_container
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../user/crates.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../user/crates.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
